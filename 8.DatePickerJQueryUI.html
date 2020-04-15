@@ -1,0 +1,115 @@
+<!--
+In this lecture we will learn about date picker widget.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Date Picker Widget</title>
+   
+    
+    <!-- Adding files of JQuery UI -->
+    <link type="text/css" rel="stylesheet" href="jqueryui/jquery-ui.css">
+      
+    
+    <link type="text/css" rel="stylesheet" href="jqueryui/jquery-ui.structure.css">
+    
+      
+    <link type="text/css" rel="stylesheet" href="jqueryui/jquery-ui.theme.css">
+    <!-- JQUERY UI files ends here -->
+    
+    
+   
+    
+    <style>
+    
+        
+    </style>
+    
+    
+   </head> 
+    <body>
+    
+       <!-- 1. date picker widget -->
+        Select your travel date:
+        <input type="text" id="datepicker">
+        
+        
+     <!-- Link of JQuery File -->
+   <script src="jquery-3.4.1.min.js"></script>
+    
+    <!-- Always add JQuery UI file below the JQuery main file. -->
+    <!-- Link of JQuery UI file -->
+    <script src="jqueryui/jquery-ui.js"></script>        
+    
+<script>
+        
+        $(document).ready(function(){
+    
+            //1. Date Picker widget
+            //$('#datepicker').datepicker();
+            
+            
+            //=============================
+            //2. Adding options to date picker
+            //=============================
+            
+           //it will show three months
+           // $('#datepicker').datepicker({numberOfMonths: 3});
+            
+           //it will show the months drop down
+           // $('#datepicker').datepicker({changeMonth: true});
+            
+            //in the same way we have changeYear
+           
+           // $('#datepicker').datepicker({changeYear : true});
+            
+           //we can also use multiple properties separated by comma
+           // $('#datepicker').datepicker({changeYear : true, changeMonth: true});
+            
+            //if we want to show week number
+           // $('#datepicker').datepicker({showWeek : true});
+            
+            //if we want to change the name of any column
+           // $('#datepicker').datepicker({showWeek : true, weekHeader : 'Week'});
+            
+            //if we want to show other months days
+           // $('#datepicker').datepicker({showOtherMonths : true});
+            
+            //we can also specify the minimum date
+            /*
+            $('#datepicker').datepicker({
+                minDate: new Date(2017,0,31)
+            });
+            */
+            //in the same way we can apply max date.
+            /*
+            $('#datepicker').datepicker({
+               maxDate: new Date(2021,11,31) 
+            });
+            */
+           
+            //we can also apply both min Date and max date
+           /* $('#datepicker').datepicker({minDate : new Date(2019,0,31), maxDate : new Date(2021,11,31)});
+           */
+            
+            //we can also add button panel using showButtonPanel
+           // $('#datepicker').datepicker({showButtonPanel : true});
+            
+            //we can also change the text of button panel buttons
+            
+            //to change the text of 'done' use closeText property and to change the text of 'today' use property currentText
+           /* $('#datepicker').datepicker({showButtonPanel : true,closeText : 'Close calender', currentText : 'Current Date'});
+            */
+            //if we want to add suffix to the year.
+            
+            $('#datepicker').datepicker({yearSuffix : ' BC'});
+           
+        });
+        
+</script>
+    
+        </body>
+    
+</html>
