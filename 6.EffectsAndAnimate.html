@@ -1,0 +1,235 @@
+<!-- 
+In this lecture we will learn about effects and animate.
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JQUERY Crash Course | Selectors</title>
+   
+
+    <!-- Link of JQuery File -->
+   <script src="jquery-3.4.1.min.js"></script>
+    
+    <style>
+    
+        body{
+           font-size:17px;
+           font-family:arial;
+           background: #f4f4f4;
+           line-height:1.5em;
+       }
+        
+       header{
+           background:#333;
+           color:#fff;
+           padding:20px;
+           text-align:center;
+           border-bottom: 4px #000 solid;
+           margin-bottom: 10px;
+       }
+       #container{
+           width:70%;
+           margin:auto;
+           padding:10px;
+       }
+        #box, #box1{
+            background:coral;
+            color:#fff;
+            width:300px;
+            height:90px;
+            padding:40px;
+            text-align:center;
+        }
+        #box2{
+            background:hotpink;
+            width:100px;
+            height:100px;
+            position:relative;
+        }
+    </style>
+    
+    
+   </head> 
+    <body>
+    
+        
+        <header>
+        
+            <h1>JQuery Crash Course </h1>
+        
+        </header>
+        
+        
+        <div id="container">
+        
+            <h1>Effects &amp; Animate</h1>
+            
+            <!-- 1. We will learn about fade in , fade out and fade toggle effect. -->
+            
+            <h2 align='center'><u>Fade Effects</u></h2>
+            
+            <button id="btnfadeOut">Fade Out</button>
+            <button id="btnfadeIn">Fade In</button>
+            <button id="btnfadeTog">Fade Toggle</button>
+            
+            <hr>
+            
+            <div id="box"><h1>Hello Web Squad!</h1></div>
+            
+            <hr>
+            
+            <h2 align='center'><u>Slide Effects</u></h2>
+            
+            
+            <button id="btnslideUp">Slide Up</button>
+            <button id="btnslideDown">Slide Down</button>
+            <button id="btnslideTog">Slide Toggle</button>
+            <button id="btnstop">Slide Stop</button>
+            
+            <hr>
+            
+            <div id="box1"><h1>Hello Web Squad!</h1></div>
+            
+            <hr>
+            
+            <h2 align='center'><u>Animate</u></h2>
+            
+            
+            <button id="moveRight">Move Right</button>
+            <button id="moveLeft">Move Left</button>
+            <button id="moveAround">Move Around</button>
+            
+            <hr>
+            <!-- to move this box make its position to relative -->
+            <div style="height:500px;">
+            
+                <div id="box2"></div>
+                
+            </div>
+            
+            
+        </div>
+
+        
+        
+<script>
+        
+        $(document).ready(function(){
+    
+            //==========================
+            // FADE Effects
+            //==========================
+            
+            //1. Fade out.
+           $('#btnfadeOut').click(function(){
+             // $('#box').fadeOut(); 
+                //we can also pass fast and slow
+            //    $('#box').fadeOut('fast');
+           // $('#box').fadeOut('slow');
+            //we can also apply number of seconds i.e; 3000 for 3 seconds.
+               // $('#box').fadeOut(3000);
+                
+                //we can also pass a call back function that we want to show something when the box fade out. but it is optional
+               $('#box').fadeOut(2000,function(){
+                   $('#btnfadeOut').text('Its fade out'); 
+                });
+                
+            });
+    
+            
+            //2. we also have fade in .
+           $('#btnfadeIn').click(function(){
+               $('#box').fadeIn(); 
+            });
+            
+            //3. and we also have fade toggle
+            $('#btnfadeTog').click(function(){
+              // $('#box').fadeToggle();
+                $('#box').fadeToggle(2000);
+            });
+            
+            
+            //==========================
+            // SLIDE Effects
+            //==========================
+            
+            $('#btnslideUp').click(function(){
+               //$('#box1').slideUp();
+                $('#box1').slideUp(2000);
+            });
+            $('#btnslideDown').click(function(){
+               //$('#box1').slideDown();
+                $('#box1').slideDown(2000);
+            });
+
+            $('#btnslideTog').click(function(){
+               //$('#box1').slideToggle();
+                $('#box1').slideToggle(2000);
+            });
+            //so we can also stop the slide.
+            $('#btnstop').click(function(){
+               $('#box1').stop(); 
+            });
+            
+            //===========================
+            // Animate
+            //===========================
+
+           //move right animation.
+            $('#moveRight').click(function(){
+               $('#box2').animate({
+                 // left:250 
+                   //we can also apply other values as:
+                   left:250,
+                   height: '200px',
+                   width:'500px',
+                   opacity:'0.7'
+               }); 
+            });
+           
+            //move left animation
+            $('#moveLeft').click(function(){
+               $('#box2').animate({
+                  // left:0
+                   left:0,
+                   height:'100px',
+                   width:'100px',
+                   opacity:'1'
+               }); 
+            });
+            //we can also apply mutiple animations at once. Its a queue
+            
+            $('#moveAround').click(function(){
+                //we are storing the value of box2 in box variable.
+                var box = $('#box2');
+                
+                box.animate({
+                   left:250 
+                });
+                box.animate({
+                   top:250 
+                });
+                box.animate({
+                   left:0,
+                    top:250
+                });
+                box.animate({
+                   left:0,
+                    top:0
+                });
+                
+            });
+               
+        });
+           
+    
+        
+        
+    </script>
+    
+        </body>
+    
+</html>
