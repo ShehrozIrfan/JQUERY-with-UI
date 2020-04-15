@@ -1,0 +1,144 @@
+<!--
+In this lecture we will learn about accordion widget.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accordion Widget | JQuery UI</title>
+   
+    
+    <!-- Adding files of JQuery UI -->
+    <link type="text/css" rel="stylesheet" href="jqueryui/jquery-ui.css">
+      
+    
+    <link type="text/css" rel="stylesheet" href="jqueryui/jquery-ui.structure.css">
+    
+      
+    <link type="text/css" rel="stylesheet" href="jqueryui/jquery-ui.theme.css">
+    <!-- JQUERY UI files ends here -->
+    
+    
+    <!-- Link of JQuery File -->
+   <script src="jquery-3.4.1.min.js"></script>
+    <!-- Always add JQuery UI file below the JQuery main file. -->
+    <!-- Link of JQuery UI file -->
+    <script src="jqueryui/jquery-ui.js"></script>        
+
+    
+    <style>
+    
+        #main{
+            width:50%;
+        }
+        
+    </style>
+    
+    
+   </head> 
+    <body>
+    
+        
+        <!-- first thing that we must keep in our mind in order to work on accordion widget is that :
+             1. we must have heading of our content
+             2. all the content should be inside the div or p.
+             3. if we don't follow above two conditions then the accordion widget doesn't works well.
+
+         -->
+        
+        <div id="main">
+        
+            <div id="panels">
+            
+            
+                <h1>First Paragaraph Content</h1>
+                <p>
+                
+                    
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
+                    
+                </p>
+                
+                 <h1>Second Paragaraph Content</h1>
+                <p>
+                
+                    
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor .
+                    
+                </p>
+                
+                 <h1>Third Paragaraph Content</h1>
+                <div>
+                
+                    
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.s
+                    
+                </div>
+                
+            
+            </div>
+        
+        
+        </div>
+        
+        
+        
+    
+        
+<script>
+        
+        $(document).ready(function(){
+    
+            //==============================
+            // Accordion Widget
+            //==============================
+           
+            //$('#panels').accordion();
+            
+            //==============================
+            // Options of Accordion Widget
+            //==============================
+            
+            //1. as we can see whenever we click on button on the header of accordion it goes down but when we again click it doesn't go up. so we can do this by collapsible property.
+            
+            //$('#panels').accordion({collapsible : true});
+            
+            //2. if we want to open the panel on mouse over we can do this by adding mouse over event
+            
+            //$('#panels').accordion({event : 'mouseover'});
+            
+            //3. as we can see that all the panels when they go up its an animation. so, we can control the time of animation using animate.
+            
+            //$('#panels').accordion({animate : 800});
+            
+            //4. as we can see by default first panel is open. so, if we want some other panel to be open by default we can do this by active property.
+            //here 0 is for first panel , 1 is for second panel and so on.
+            
+            //$('#panels').accordion({active : 1});
+            
+            //5. as we can see that the height of all panels is adjusted according to the active panel. so if we want to apply height to each panel according to the content inside that we can do this by using property heightStyle : "content"
+            
+            //$('#panels').accordion({active : 1} , {heightStyle : 'content'});
+        
+            
+            //6. as you can see the icons before the header. we can change those icons. here is the link from where you can find JQuery UI icons: https://api.jqueryui.com/theming/icons/
+            
+            //we can use 
+            //"ui-icon-plus", "ui-icon-minus", 
+            //"ui-icon-zoomin", "ui-icon-zoomout",
+            //"ui-icon-mail-closed", "ui-icon-mail-open", 
+            //"ui-icon-folder-collapsed", "ui-icon-folder-open" etc.
+            $('#panels').accordion({active : 1 }, {heightStyle : 'content'},{collapsible : true},{icons:{
+                header : "ui-icon-folder-collapsed",
+                activeHeader : "ui-icon-folder-open"
+            }});
+            
+            //7. so if we want to change the style of accordion we can do this by going into our jquery UI file and then going into structure.css. and then we have to find that class on which we have to change the style. To get that class click on that content and then inspect you will get the class and then find that class in the structure.css file and make changes.
+        });
+        
+</script>
+    
+        </body>
+    
+</html>
