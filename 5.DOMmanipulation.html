@@ -1,0 +1,241 @@
+<!-- 
+In this lecture we will learn about DOM Manipulation
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JQUERY Crash Course | Selectors</title>
+   
+
+    <!-- Link of JQuery File -->
+   <script src="jquery-3.4.1.min.js"></script>
+    
+    <style>
+    
+        body{
+           font-size:17px;
+           font-family:arial;
+           background: #f4f4f4;
+           line-height:1.5em;
+       }
+        
+       header{
+           background:#333;
+           color:#fff;
+           padding:20px;
+           text-align:center;
+           border-bottom: 4px #000 solid;
+           margin-bottom: 10px;
+       }
+       #container{
+           width:50%;
+           margin:auto;
+           padding:10px;
+       }
+        /* 2. Adding class */
+        .myClass{
+            color:blue;
+            background:hotpink;
+        }
+    </style>
+    
+    
+   </head> 
+    <body>
+    
+        
+        <header>
+        
+            <h1>JQuery Crash Course | DOM Manipulation</h1>
+        
+        </header>
+        
+        
+        <div id="container">
+
+            <button id="btn1">Button 1</button>
+            <p class="para1">This is a paragraph </p>
+            <p class="para2">This is another paragraph</p>
+            <div id="myDiv"></div>
+            
+            <!-- 13. Creating input field -->
+            <input type="text" id="newItem">
+            
+            
+            
+            <!-- 6: Creating List -->
+            <ul id="list">
+            
+                <li>List Item 1</li>
+                <li>List Item 2</li>
+                <li>List Item 3</li>
+                <li>List Item 4</li>
+                
+            </ul>
+            
+            <!-- 11:Working with attributes -->
+            
+            <a href="https://www.google.com">Google</a>
+            
+            <!-- 14:Creating list -->
+            
+            <ul id="users"></ul>
+            
+            
+              </div>
+
+        
+        
+    <script>
+        
+        $(document).ready(function(){
+            
+            //1.Applying CSS multiple properties
+            
+           // $('p.para1').css({color:'red',background:'#ccc'});
+            
+            
+            //2.Now we will add that class that we have created above in our para2.
+           // $('p.para2').addClass('myClass');
+            
+            //3.We can also remove the class that we have added above
+           // $('p.para2').removeClass('myClass');
+            
+            //4.if we want whenever button is clicked then that class will be toggle.
+            /*
+            $('#btn1').click(function(){
+                $('p.para2').toggleClass('myClass');
+            });
+            */
+            /*
+            =============================
+            Now we will move to adding & changing content from within a DOM
+            =============================
+            */
+            
+            //5. So if we want to add text to div that we have created above in the container.
+           // $('#myDiv').text('Web Squad is Awesome');
+            
+            //if we want to add text using html
+            //$('#myDiv').html('<h3>Web Squad is Awesome</h3>');
+            //if we want to get the value of myDiv
+          //  alert($('#myDiv').text());
+            
+            //6.So if we want to add another list item to the list that we have created above in container.
+            
+            //$('ul').append('<li>Append List Item</li>');
+            //if we want to add list item to the top of list(means first list item).
+            //$('ul').prepend('<li>Prepend List Item</li>');
+            
+            
+            //7. we also have appendTo and prependTo
+            //appendTo is used to append something into something.
+           /* $('.para1').appendTo('.para2');
+            //prependTo
+            $('.para1').prependTo('.para2');
+            */
+            
+            //8. we also have before and after.
+            //in appendTo and prependTo we are actually appending and prepending but before means we want to add something before the something and after means we want to something after the something
+            
+            //so if want to add 'Hello' before ul
+            //$('ul').before('<h4>HELLO</h4>');
+            
+            //if we want to add 'WORLD' after ul
+            
+            //$('ul').after('<h4>WORLD</h4>');
+            
+            //9. we have empty which removes all the inner elements from the main element. so if you open console and inspect you can see 'ul' will be present their but all the inner elements are removed.
+            
+            //$('ul').empty(); 
+            
+            //10. we also have detach which detach the element from dom.
+            
+            //$('ul').detach();
+       
+           
+            //===========================
+    //We can also work with attributes
+            //===========================    
+        //11.if we want to add target attribute to 'a' tag that we have created above.
+        /*
+        $('a').attr('target','_blank');
+        
+        //we can also get the value of attribute using attr.
+       // alert($('a').attr('href'));
+        
+        //we can also remove the attribute.
+        $('a').removeAttr('target');
+        */
+        
+        //===============================
+        // Wrapping elements
+        //===============================
+        // we can also wrap specific elements into another elements.
+        
+        //12. So if we want to wrap all 'p' in h1. Don't need to write the closing tag, it will do this for you.
+        /*
+        $('p').wrap('<h1>');
+        */
+        //we also have wrap all which will wrap all the 'p's' only in one h1.
+        /*
+        $('p').wrapAll('<h1>');
+        */
+        
+        //===============================
+        // Adding items to list dynamically
+        //===============================
+        
+        //13.The idea here is that whenever we enter something in text field and when we click ENTER key then the value will be added to our list.
+        //so we do this with keyup because every key has value and ENTER key has value = 13.
+        /*
+        $('#newItem').keyup(function(e){
+           
+            //getting the code of each keyup
+            var code = e.which;
+            //if keyup is enter because enter has code 13.
+            if( code == "13"){
+                //then we prevent the default behavior
+                e.preventDefault();
+               //and add items to list 
+               $('ul').append('<li>'+e.target.value+'</li>')
+                
+            });
+            
+            */
+        
+        //===============================
+        //Array Methods
+        //===============================
+        
+        //14. Let we have array of values
+        /*
+        var myArr = ['Hammad','Ubaid','Nouman','Khizar','Qasim'];
+        
+        //if we want to loop in our array then we can use each method.
+        
+        $.each(myArr,function(i, val){
+          //console.log(val);
+           // alert(val);
+       //if we want to create a list of array values
+            $('#users').append('<li>'+val+'</li>');
+        });
+        */
+        
+        //15.if we want to add list items to array.
+            
+            var newArr = $('ul#list li').toArray();
+            //console.log(newArr);
+            //if we want to get the list items.
+            $.each(newArr,function(i,val){
+               console.log(val.innerHTML); 
+            });
+        
+     });
+    </script>
+    
+        </body>
+    
+</html>
