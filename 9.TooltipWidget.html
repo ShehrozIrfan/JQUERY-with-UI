@@ -1,0 +1,97 @@
+<!--
+In this lecture we will learn about tool tip widget.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tool Tip Widget</title>
+   
+    
+    <!-- Adding files of JQuery UI -->
+    <link type="text/css" rel="stylesheet" href="jqueryui/jquery-ui.css">
+      
+    
+    <link type="text/css" rel="stylesheet" href="jqueryui/jquery-ui.structure.css">
+    
+      
+    <link type="text/css" rel="stylesheet" href="jqueryui/jquery-ui.theme.css">
+    <!-- JQUERY UI files ends here -->
+    
+    
+    <!-- Link of JQuery File -->
+   <script src="jquery-3.4.1.min.js"></script>
+    <!-- Always add JQuery UI file below the JQuery main file. -->
+    <!-- Link of JQuery UI file -->
+    <script src="jqueryui/jquery-ui.js"></script>        
+
+    
+    <style>
+    
+        img {
+            border-radius: 50%;
+            margin-left: auto;
+            margin-right: auto;
+            display: block;
+        }
+        
+    </style>
+    
+    
+   </head> 
+    <body>
+    
+        
+        <img src="PICNEW.jpg" id="image" title="Shehroz Irfan">
+        
+        
+        
+    
+        
+<script>
+        
+        $(document).ready(function(){
+    
+           // $('#image').tooptip();
+            //if we want to change the content of title
+            //$('#image').tooltip({content : 'Shehroz'});
+            
+            //if we want to track the tooltip
+            //$('#image').tooltip({track : true});
+            
+            //==============================
+            // Adding Effects to tooltip
+            //==============================
+            
+           //show means 'show' that effect. effect means which effect you want to apply. duration means how much time that effect will be applied.  
+           // $('#image').tooltip({show : {effect : 'pulsate' ,duration : 800}});
+            
+            // $('#image').tooltip({show : {effect : 'fadeIn' ,duration : 800}});
+            
+           //  $('#image').tooltip({show : {effect : 'bounce' ,duration : 800}});
+            
+            // $('#image').tooltip({show : {effect : 'explode' ,duration : 800}});
+            
+             // $('#image').tooltip({show : {effect : 'highlight' ,duration : 800}});
+            
+             //$('#image').tooltip({show : {effect : 'blind' ,duration : 800}});
+           
+            //==============================
+            // Combining the Effects
+            //==============================
+            
+             $('#image').tooltip(
+                 {show : {effect : 'highlight' ,duration : 800}} ,
+                 {hide : {effect : 'bounce' ,duration : 800}}
+             );
+           
+           //We can also change the style of tooltip by making changing to structure.css file
+            
+        });
+        
+</script>
+    
+        </body>
+    
+</html>
